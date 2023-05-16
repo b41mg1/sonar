@@ -1,0 +1,27 @@
+const int trigPin = 12;
+const int echoPin = 11;
+long duration, cm;
+
+void setup() {
+
+pinMode (trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+Serial.begin (9600);
+
+}
+
+void loop() {
+digitalWrite(trigPin, LOW);
+delayMicroseconds (2);
+digitalwWrite(trigPin, HIGH);
+delayMicroseconds (10);
+digitalwWrite(trigPin, LOW);
+
+duration = pulseIn(echoPin, HIGH);
+cm = duration * 1.7 * 0.01;
+Serial.print (cm);
+Serial.println();
+
+delay (100);
+
+}
